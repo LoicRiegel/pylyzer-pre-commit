@@ -8,7 +8,7 @@ maintainers = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
 readme = "README.md"
 license = "MIT"
 dependencies = [
-    "pylyzer==0.0.80",
+    "pylyzer==v0.0.80",
 ]
 
 [project.urls]
