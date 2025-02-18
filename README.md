@@ -1,4 +1,4 @@
-# pre-commit-pylyzer
+# pylyzer-pre-commit
 
 A [pre-commit](https://pre-commit.com/) hook for [pylyzer](https://github.com/mtshiba/pylyzer).
 
