@@ -1,0 +1,18 @@
+[project]
+name = "pylyzer-pre-commit"
+description = "A pre-commit hook for pylyzer"
+keywords = ["pre-commit", "pylyzer"]
+version = "0.0.0"
+authors = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
+maintainers = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
+readme = "README.md"
+license = "MIT"
+dependencies = [
+    "pylyzer==0.0.80",
+]
+
+[project.urls]
+Repository = "https://github.com/LoicRiegel/pre-commit-pylyzer"
+
+[tool.uv.workspace]
+members = ["tmp"]

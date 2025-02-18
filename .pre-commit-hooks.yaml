@@ -1,0 +1,10 @@
+- id: pylyzer
+  name: pylyzer
+  description: "Run 'pyzyler' static code analysis"
+  entry: pylyzer
+  language: python
+  types_or: [python]
+  args: []
+  require_serial: true
+  additional_dependencies: []
+  # minimum_pre_commit_version: "2.9.2"
