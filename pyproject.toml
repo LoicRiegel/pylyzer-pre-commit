@@ -6,7 +6,7 @@ version = "0.0.0"
 authors = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
 maintainers = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
 readme = "README.md"
-license = "MIT"
+license = { file = "LICENSE" }
 dependencies = [
     "pylyzer==0.0.82",
 >>>>>>> 3a95774 (fix pylyzer version)
