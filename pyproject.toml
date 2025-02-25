@@ -8,11 +8,8 @@ maintainers = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
 readme = "README.md"
 license = { file = "LICENSE" }
 dependencies = [
-    "pylyzer==v0.0.80",
+    "pylyzer==v0.0.82",
 ]
 
 [project.urls]
 Repository = "https://github.com/LoicRiegel/pre-commit-pylyzer"
-
-[tool.uv.workspace]
-members = ["tmp"]
