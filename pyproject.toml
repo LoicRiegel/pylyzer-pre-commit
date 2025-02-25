@@ -8,7 +8,6 @@ maintainers = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
 readme = "README.md"
 dependencies = [
     "pylyzer==0.0.82",
->>>>>>> 3a95774 (fix pylyzer version)
 ]
 
 [project.urls]

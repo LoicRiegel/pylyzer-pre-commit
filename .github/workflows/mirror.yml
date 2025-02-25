@@ -1,0 +1,41 @@
+name: Mirror
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"  # Runs every 12 hours, only on the main branch
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: nu {0}
+
+permissions:
+  contents: write  # Needed for git operations
+
+jobs:
+  run-mirror-script:
+    # Ensures it only runs on main
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Nushell
+        uses: hustcer/setup-nu@v3
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Install pre-commit
+        run: uv tool install pre-commit
+
+      - name: Run mirror script
+        env:
+            GH_TOKEN: ${{ github.token }}
+        run: |
+          nu mirror.nu
