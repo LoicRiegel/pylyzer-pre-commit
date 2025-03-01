@@ -77,6 +77,10 @@ def main [] {
         git add pyproject.toml README.md
         git commit -m $commit_msg
         git tag $new_tag
+        print "Pushing new commit and tag"
+        git log -2
+        git tag
+        git push
     } else {
         print 'No new tag has been published'
     }
