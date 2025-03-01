@@ -54,12 +54,12 @@ export def update-version-in-pyproject [new_version: string] {
 
 # Create the git tag based on the pylyzer version from PYPI
 export def create-tag-from-version [version: string] {
-    $'v($new_version)'
+    $'v($version)'
 }
 
 # Default commit message based on the new tag of pylyzer
-export def create-commit-msg [new_version: string] {
-    $'Mirror: ($new_version)'
+export def create-commit-msg [version: string] {
+    $'Mirror: ($version)'
 }
 
 def main [] {
@@ -73,9 +73,10 @@ def main [] {
         print 'A new tag has been published: creating a commit and tag'
         update-version-in-pyproject $latest_version_from_pypi;
         update-version-in-readme $latest_version_from_pypi;
+        let commit_msg = create-commit-msg $latest_version_from_pypi
         git add pyproject.toml README.md
-        git commit -m (create-commit-msg $latest_version_from_pypi)
-        git tag -a $new_tag
+        git commit -m $commit_msg
+        git tag $new_tag
     } else {
         print 'No new tag has been published'
     }
