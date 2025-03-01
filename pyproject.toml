@@ -7,7 +7,7 @@ authors = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
 maintainers = [{ name = "Loïc Riegel", email = "loic.riegel@outlook.fr" }]
 readme = "README.md"
 dependencies = [
-    "pylyzer==v0.0.82",
+    "pylyzer==0.0.82",
 ]
 
 [project.urls]
