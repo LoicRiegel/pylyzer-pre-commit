@@ -8,7 +8,7 @@ To run pylyzer via pre-commit, add the following to your ``.pre-commit-config.ya
 ```yaml
 repos:
   - repo: https://github.com/LoicRiegel/pylyzer-pre-commit
-    rev: v0.0.81  # pylyzer version
+    rev: v0.0.82  # pylyzer version
     hooks:
       - id: pylyzer
 ```
