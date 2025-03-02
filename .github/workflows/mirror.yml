@@ -2,7 +2,7 @@ name: Mirror
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # Runs every 12 hours, only on the main branch
+    - cron: "0 */12 * * *"  # runs every 12 hours
   workflow_dispatch:
 
 defaults:
@@ -10,12 +10,10 @@ defaults:
     shell: nu {0}
 
 permissions:
-  contents: write  # Needed for git operations
+  contents: write
 
 jobs:
-  run-mirror-script:
-    # Ensures it only runs on main
-    if: github.ref == 'refs/heads/main'
+  mirror:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,13 +27,16 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       
-      - name: Install uv
+      - name: Set up uv
         uses: astral-sh/setup-uv@v5
+        with:
+          cache-dependency-glob: ""  # prevents unnecessary warnings
+
       - name: Install pre-commit
         run: uv tool install pre-commit
 
       - name: Run mirror script
         env:
-            GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           nu mirror.nu
