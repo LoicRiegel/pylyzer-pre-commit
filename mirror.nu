@@ -64,7 +64,7 @@ export def create-commit-msg [version: string]: any -> string {
 
 export def create-gh-release [] {
     let tag = git tag | lines | last;
-    gh release create $tag --title $tag --notes $'https://github.com/mtshiba/pylyzer/releases/tag/($tag)' --latest;
+    gh release create $tag --title $tag --notes $'See notes at https://github.com/mtshiba/pylyzer/releases/tag/($tag)' --latest;
 }
 
 # Test the pre-commit
