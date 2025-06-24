@@ -2,7 +2,7 @@ name: Mirror
 
 on:
   schedule:
-    - cron: "0 */12 * * *"  # runs every 12 hours
+    - cron: "0 0 * * *"  # runs every day at 00:00 UTC
   workflow_dispatch:
 
 defaults:
